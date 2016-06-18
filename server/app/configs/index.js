@@ -1,15 +1,7 @@
 'use strict';
 
-import * as db from './database.config';
+import {default as settings} from './lib/settings.config';
+import {default as expressConfig} from './lib/express.config';
 
-const config = {
-  'development': {
-    db
-  }
-};
-
-console.log(config)
-
-export default function (env) {
-  return config[env];
-}
+export {settings};
+export {expressConfig};
