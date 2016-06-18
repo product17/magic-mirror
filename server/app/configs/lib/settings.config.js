@@ -1,5 +1,3 @@
-'use strict';
-
 export default {
   development: {
     app: 'Base Node App',

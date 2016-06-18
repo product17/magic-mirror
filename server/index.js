@@ -1,8 +1,6 @@
-'use strict';
-
 import * as config from './app/configs';
-import {default as http} from 'http';
-import {default as chalk} from 'chalk';
+import { default as http } from 'http';
+import { default as chalk } from 'chalk';
 // import {default as express} from 'express';
 
 const app = config.expressConfig(process.env.NODE_ENV);
@@ -10,7 +8,7 @@ const app = config.expressConfig(process.env.NODE_ENV);
 const server = http.createServer(app);
 
 function handleError (error) {
-  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
+  const bind = typeof port === 'string' ? `Pipe ${app.get('port')}` : `Port ${app.get('port')}`;
 
   if (error.syscall !== 'listen') {
     throw error;
@@ -30,6 +28,7 @@ function handleError (error) {
       throw error;
   }
 }
+
 
 function handleListening () {
   const addr = server.address();

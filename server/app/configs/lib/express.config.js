@@ -1,14 +1,12 @@
-'use strict';
-
-import {default as path} from 'path';
-import {default as express} from 'express';
-import {default as config} from './settings.config';
-import {default as compress} from 'compression';
-import {default as morgan} from 'morgan';
-import {default as methodOverride} from 'method-override';
-import {default as helmet} from 'helmet';
-import {default as bodyParser} from 'body-parser';
-import {default as cookieParser} from 'cookie-parser';
+import { default as path } from 'path';
+import { default as express } from 'express';
+import { default as config } from './settings.config';
+import { default as compress } from 'compression';
+import { default as morgan } from 'morgan';
+import { default as methodOverride } from 'method-override';
+import { default as helmet } from 'helmet';
+import { default as bodyParser } from 'body-parser';
+import { default as cookieParser } from 'cookie-parser';
 
 
 export default function (env) {
@@ -25,7 +23,7 @@ export default function (env) {
 
   // Should be placed before express.static
   app.use(compress({
-    filter: function filter(req, res) {
+    filter: function filter (req, res) {
       return (/json|text|javascript|css/).test(res.getHeader('Content-Type'));
     },
     level: 9,
@@ -81,7 +79,6 @@ export default function (env) {
   app.use('/public', express.static(path.join(__dirname, '../../../public')));
 
   // Include Routes here
-
 
 
   // Need to setup error module
