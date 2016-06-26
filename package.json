@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build && mkdir build",
+    "check-npm": "nsp check",
     "build-server": "npm run clean && node_modules/babel-cli/bin/babel.js -d ./build ./server",
     "start": "NODE_ENV=production node ./build/index.js",
     "start-debug": "node --debug ./build/index.js",
@@ -36,6 +37,7 @@
     "method-override": "^2.3.6",
     "mongoose": "^4.5.0",
     "morgan": "^1.7.0",
-    "passport": "^0.3.2"
+    "passport": "^0.3.2",
+    "redis": "^2.6.2"
   }
 }
