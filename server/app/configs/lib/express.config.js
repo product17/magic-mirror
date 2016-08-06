@@ -97,6 +97,8 @@ export default function (env) {
       url: req.originalUrl,
       status: 500,
     });
+
+    return null;
   });
 
   // Assume 404 since no middleware responded
