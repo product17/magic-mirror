@@ -1,6 +1,6 @@
 import * as config from './app/configs';
 import { default as http } from 'http';
-import { default as chalk } from 'chalk';
+import { general as logger } from './app/logger';
 // import {default as express} from 'express';
 
 const app = config.expressConfig(process.env.NODE_ENV);
@@ -17,11 +17,11 @@ function handleError (error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(chalk.red(`${bind} requires elevated privileges`));
+      logger.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(chalk.red(`${bind} is already in use`));
+      logger.error(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
@@ -33,7 +33,7 @@ function handleError (error) {
 function handleListening () {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
-  console.log(chalk.green(`Listening on ${bind}`));
+  logger.info(`Listening on ${bind}`);
 }
 
 server.listen(app.get('port'));

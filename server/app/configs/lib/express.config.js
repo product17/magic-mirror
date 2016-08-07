@@ -1,13 +1,13 @@
 import { default as path } from 'path';
 import { default as express } from 'express';
-import { default as config } from './settings.config';
+import { settings as config } from './settings.config';
 import { default as compress } from 'compression';
 import { default as morgan } from 'morgan';
 import { default as methodOverride } from 'method-override';
 import { default as helmet } from 'helmet';
 import { default as bodyParser } from 'body-parser';
 import { default as cookieParser } from 'cookie-parser';
-
+import { general as logger } from '../../logger';
 
 export default function (env) {
   const app = express();
@@ -89,7 +89,7 @@ export default function (env) {
     }
 
     // Log it
-    console.error(err.stack);
+    logger.error(err.stack);
 
     // Error page
     res.status(500).render('error', {

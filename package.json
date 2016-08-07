@@ -11,7 +11,8 @@
     "start": "NODE_ENV=production node ./build/index.js",
     "start-debug": "node --debug ./build/index.js",
     "start-dev": "NODE_ENV=development node_modules/babel-cli/bin/babel-node.js ./server/index.js",
-    "start-dev-debug": "NODE_ENV=development node_modules/babel-cli/bin/babel-node.js --debug ./server/index.js"
+    "start-dev-debug": "NODE_ENV=development node_modules/babel-cli/bin/babel-node.js --debug ./server/index.js",
+    "run-dev": "npm run build-server && npm run start-dev"
   },
   "author": "Brent Crocker",
   "license": "ISC",
