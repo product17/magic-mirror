@@ -8,6 +8,7 @@ import { default as helmet } from 'helmet';
 import { default as bodyParser } from 'body-parser';
 import { default as cookieParser } from 'cookie-parser';
 import { general as logger } from '../../logger';
+import mirrorClient from '../../mirror-client';
 
 export default function (env) {
   const app = express();
@@ -79,7 +80,7 @@ export default function (env) {
   app.use('/public', express.static(path.join(__dirname, '../../../public')));
 
   // Include Routes here
-
+  app.use('/mirror', mirrorClient);
 
   // Need to setup error module
   app.use((err, req, res, next) => {

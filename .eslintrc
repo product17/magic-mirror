@@ -1,7 +1,24 @@
 {
-  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "extends": ["standard", "plugin:react/recommended"],
   "rules": {
+    "no-console": "warn",
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
     "space-before-function-paren": [1, "always"],
     "no-param-reassign": ["error", { "props": false }]
+  },
+  "parserOntions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "describe": true,
+    "it": true,
+    "beforeEach": true
   }
 }
